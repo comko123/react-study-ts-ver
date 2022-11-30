@@ -130,13 +130,9 @@ const allProduct = (product:setStateType[]) => {
     {product && product.map((items:setStateType,index:number)=>
      <ParentNode key={index}>
         <a href={items.link}>
-        <Image src={items.image}/>
-        <br/>
-        <Title>{items.title}</Title>
-        </a>
-        </ParentNode>
-       )}
- </DivThree>)
+        <Image src={items.image}/><br/>
+        <Title>{items.title}</Title></a>
+        </ParentNode>)}</DivThree>)
 }
 const minus = (num:number) => {
     return num-100
@@ -147,7 +143,7 @@ const plus = (num:number) => {
 const carousel = (result:number,
     change:(parm:number)=>void,
 curent:React.RefObject<HTMLDivElement>) => {
-        if(!!!curent.current)return;
+        if(!curent.current)return;
         curent.current.style.transform = `translate(${result}vw)`
         change(result)
 }
@@ -164,14 +160,11 @@ await Promise.all([productAxios(setShoes ,"신발"),
                    productAxios(setPhone ,"핸드폰")])
         }catch(e){console.log(e)}})()},[])
         return(
-    <Parents>
-    <DivFive ref = {curent}>
+    <Parents><DivFive ref = {curent}>
    <DivSix> {!!favorite.length?favorite.map((item,index)=>
 <a href={item?.link} key={index}>
 <ImageZero src={item?.image} alt="no image" />
-</a>
-):null}</DivSix>
-    </DivFive>
+</a>):null}</DivSix></DivFive>
     
 <DivOne>
 <PreviousBtn onClick={()=>{ 
@@ -185,9 +178,7 @@ await Promise.all([productAxios(setShoes ,"신발"),
     if(move>-500){
         carousel(res,setMove,curent)
     }}}>&rarr;</NextBtn>
-
 </DivOne>
-
     <Popularity>
     <Text>인기 상품</Text>
     <DivTwo>{!!favorite.length?favorite.map((item,index)=><DivFour key={index}>
@@ -205,7 +196,6 @@ await Promise.all([productAxios(setShoes ,"신발"),
      {allProduct(phone)}
   </Child>
   </Popularity>
-
     </Parents>)
 }
 export default MainPage
