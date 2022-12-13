@@ -163,39 +163,34 @@ await Promise.all([productAxios(setShoes ,"신발"),
     <Parents><DivFive ref = {curent}>
    <DivSix> {!!favorite.length?favorite.map((item,index)=>
 <a href={item?.link} key={index}>
-<ImageZero src={item?.image} alt="no image" />
-</a>):null}</DivSix></DivFive>
+<ImageZero src={item?.image} alt="no image"/></a>):null}
+</DivSix></DivFive>
     
 <DivOne>
 <PreviousBtn onClick={()=>{ 
     const res = plus(move)
     if(move>-600 && move<0){
-        carousel(res,setMove,curent)
-     }}}>&larr;</PreviousBtn>
+    carousel(res,setMove,curent)
+    }}}>&larr;</PreviousBtn>
 
 <NextBtn onClick={()=>{
     const res =  minus(move)
     if(move>-500){
-        carousel(res,setMove,curent)
-    }}}>&rarr;</NextBtn>
-</DivOne>
+    carousel(res,setMove,curent)
+    }}}>&rarr;</NextBtn></DivOne>
     <Popularity>
     <Text>인기 상품</Text>
     <DivTwo>{!!favorite.length?favorite.map((item,index)=><DivFour key={index}>
     <a href={item?.link}>
 <ImageTwo src={item?.image} alt="no image"/>
-</a>
-</DivFour>):null}
-    </DivTwo>
-    </Popularity>
+</a></DivFour>):null}</DivTwo></Popularity>
 
 <Popularity><Text>전체 상품 목록</Text>
     <Child>
-     {allProduct(shoes)}
-     {allProduct(cloth)}
-     {allProduct(phone)}
+    {allProduct(shoes)}
+    {allProduct(cloth)}
+    {allProduct(phone)}
   </Child>
   </Popularity>
-    </Parents>)
-}
+  </Parents>)}
 export default MainPage
