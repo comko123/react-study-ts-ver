@@ -163,7 +163,7 @@ await Promise.all([productAxios(setShoes ,"신발"),
     <Parents><DivFive ref = {curent}>
    <DivSix> {!!favorite.length?favorite.map((item,index)=>
 <a href={item?.link} key={index}>
-<ImageZero src={item?.image} alt="no image"/></a>):null}
+<ImageZero src={item?.image} alt="no_image"/></a>):null}
 </DivSix></DivFive>
     
 <DivOne>
